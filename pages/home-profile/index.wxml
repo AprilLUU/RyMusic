@@ -1,0 +1,21 @@
+<!--pages/home-profile/index.wxml-->
+<button class="btn" bind:tap="handleGetUserInfo" wx:if="{{!userInfo.nickName}}">点击授权</button>
+<view class="user" wx:if="{{userInfo.nickName}}">
+  <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+  <view class="nickname">{{userInfo.nickName}}</view>
+</view>
+
+<area-header title="已播歌曲" showRight="{{false}}"></area-header>
+<block wx:for="{{historyPlaySongList}}" wx:key="id">
+  <song-item-v2 
+    item="{{item}}" 
+    index="{{index + 1}}"
+    bind:tap="handleSongItemClick"
+    data-index="{{index}}"
+  ></song-item-v2>
+</block>
+
+<play-bar wx:if="{{currentSong.id}}"></play-bar>
+
+<play-song-list wx:if="{{isShowPlayListSongs}}" isHomePage="{{true}}">
+</play-song-list>

@@ -1,0 +1,9 @@
+{
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "video-item-v1": "/components/video-item-v1/index",
+    "play-bar": "/components/play-bar/index",
+    "play-song-list": "/components/play-song-list/index"
+  }
+}

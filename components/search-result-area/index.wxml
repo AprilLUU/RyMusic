@@ -1,0 +1,53 @@
+<!--components/search-result-area/index.wxml-->
+<view 
+  class="result-search"
+  style="top: {{searchHeight + 'px'}}"
+  wx:if="{{ resultSongs.length }}">
+  <block wx:for="{{resultSearch}}" wx:key="type">
+    <view class="result-search-item" bind:tap="handleResultSearchItemClick" data-index="{{index}}">
+      <text class="result-search-item-text {{index === resultSearchIndex ? 'active' : ''}}">{{item.searchName}}</text>
+    </view>
+  </block>
+</view>
+
+<view class="result" wx:if="{{resultSearchIndex === 0}}">
+  <view class="title">最佳匹配</view>
+  <block wx:for="{{resultSongs}}" wx:key="index">
+    <song-item-v2 
+      item="{{item}}" 
+      index="{{index + 1}}" 
+      bind:tap="handleSongItemClick"
+      data-index="{{index}}"
+    ></song-item-v2>
+  </block>
+</view>
+
+<view class="result" wx:if="{{resultSearchIndex === 1}}">
+  <block wx:for="{{resultSongMenus}}" wx:key="id">
+    <menu-item-v2 
+      item="{{item}}"
+      bind:tap="handleMenuItemClick"
+      data-id="{{item.id}}"
+    ></menu-item-v2>
+  </block>
+</view>
+
+<view class="result" wx:if="{{resultSearchIndex === 2}}">
+  <block wx:for="{{resultSongVideos}}" wx:key="id">
+    <video-item-v2
+      itemInfo="{{item}}"
+      bind:tap="handleVideoItemClick"
+      data-id="{{item.vid}}"
+    ></video-item-v2>
+  </block>
+</view>
+
+<view class="result" wx:if="{{resultSearchIndex === 3}}">
+  <block wx:for="{{resultSongRadios}}" wx:key="id">
+    <menu-item-v2 
+      item="{{item}}"
+      bind:tap="handleRadioItemClick"
+      data-id="{{item.id}}"
+    ></menu-item-v2>
+  </block>
+</view>

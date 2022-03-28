@@ -1,0 +1,43 @@
+<!--pages/detail-search/index.wxml-->
+<van-search
+  class="search"
+  background="#fafafa"
+  shape="round"
+  value="{{searchValue}}"
+  show-action="{{searchValue}}"
+  bind:change="handleSearchChange"
+  bind:search="handleSearchAction"
+></van-search>
+
+<search-keyword-area 
+  hotKeyWords="{{hotKeyWords}}"
+  title="热门搜索"
+  wx:if="{{ !searchValue.length && !suggestSongs.length }}"
+  bind:click="handleKeywordItemClick"
+></search-keyword-area>
+<search-keyword-area 
+  hotKeyWords="{{historySearch}}"
+  title="历史搜索"
+  wx:if="{{ !searchValue.length && historySearch.length }}"
+  bind:click="handleKeywordItemClick"
+></search-keyword-area>
+
+<search-suggest-area
+  suggestSongs="{{suggestSongs}}"
+  suggestSongsNodes="{{suggestSongsNodes}}"
+  searchValue="{{searchValue}}"
+  wx:elif="{{ suggestSongs.length && !resultSongs.length }}"
+  bind:click="handleKeywordItemClick"
+></search-suggest-area>
+
+<search-result-area
+  resultSongs="{{resultSongs}}"
+  resultSongMenus="{{resultSongMenus}}"
+  resultSongVideos="{{resultSongVideos}}"
+  resultSongRadios="{{resultSongRadios}}"
+  resultSearch="{{resultSearch}}"
+  searchHeight="{{searchHeight}}"
+  wx:elif="{{ resultSongs.length }}"
+  bind:click="handleSearchResultItemClick"
+></search-result-area>
+

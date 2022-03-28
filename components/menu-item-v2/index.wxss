@@ -1,0 +1,36 @@
+/* components/menu-item-v2/index.wxss */
+.item {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+}
+
+.left .image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 5px;
+}
+
+.right {
+  flex: 1;
+  margin-left: 20rpx;
+  overflow: hidden;
+}
+
+.right .name {
+  width: 100%;
+  font-size: 32rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.right .desc {
+  width: 100%;
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

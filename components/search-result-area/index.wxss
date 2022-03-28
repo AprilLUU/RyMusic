@@ -1,0 +1,39 @@
+/* components/search-result-area/index.wxss */
+.result .title {
+  color: #26ce8a;
+  font-size: 34rpx;
+  font-weight: 700;
+  margin-top: 20rpx;
+}
+
+.result-search {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  z-index: 10;
+  background-color: #fafafa;
+}
+
+.result-search .result-search-item {
+  flex: 1;
+  text-align: center;
+}
+
+.result-search .result-search-item .result-search-item-text {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  font-size: 35rpx;
+}
+
+.active {
+  color: #26ce8a;
+  border-bottom: 2px solid #26ce8a;
+}
+
+.result {
+  margin-top: 55px;
+  z-index: -1;
+  padding: 0 20rpx;
+}

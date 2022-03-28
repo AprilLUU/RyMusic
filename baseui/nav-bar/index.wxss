@@ -1,0 +1,40 @@
+/* components/navgation-bar/index.wxss */
+.nav-bar {
+  display: flex;
+  text-align: center;
+}
+
+.left, .right, .center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left, .right {
+  width: 120rpx;
+}
+
+.left-slot:empty + .left-arrow {
+  display: block;
+}
+
+.left .left-arrow {
+  display: none;
+}
+
+.left .left-arrow .icon {
+  display: block;
+  width: 40rpx;
+}
+
+.center {
+  flex: 1;
+}
+
+.center-slot:empty + .center-title {
+  display: block;
+}
+
+.center .center-title {
+  display: none;
+}

@@ -1,0 +1,25 @@
+/* components/search-keyword-area/index.wxss */
+.header {
+  font-size: 40rpx;
+  font-weight: bolder;
+  margin-top: 20rpx;
+}
+
+.keywords {
+  padding: 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.keywords .tag {
+  font-size: 28rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 10rpx 12rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+}
+
+.keywords .tag:first-of-type {
+  color: #26ce8a;
+}

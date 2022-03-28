@@ -1,0 +1,24 @@
+<!--components/play-song-list/index.wxml-->
+<view class="list-wrapper" style="width: {{screenWidth + 'px'}};height: {{screenHeight + 'px'}};">
+  <view 
+    class="list-shadow" 
+    bind:tap="handleListShadowClick"
+    style="height: {{listShadowHeight + 'px'}};"
+  ></view>
+  <view 
+    class="list"
+    style="max-height: {{maxHeight + 'px'}};"
+    scroll-y>
+    <block wx:for="{{playListSongs}}" wx:key="id">
+      <view 
+        class="list-item" 
+        bind:tap="handleSongListItemClick"
+        data-id="{{item.id}}"
+        data-index="{{index}}">
+        <text class="song-name {{playListIndex === index ? 'active' : ''}}">{{item.name}}</text>
+        <text class="song-line {{playListIndex === index ? 'active' : ''}}">-</text>
+        <text class="song-ar {{playListIndex === index ? 'active' : ''}}">{{item.ar[0].name || item.artists[0].name}}</text>
+      </view>
+    </block>
+  </view>
+</view>

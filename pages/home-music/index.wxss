@@ -1,0 +1,22 @@
+/* pages/home-music/index.wxss */
+page {
+  padding: 0 20rpx;
+}
+
+.swiper {
+  border-radius: 10rpx;
+  overflow: hidden;
+  /* 解决某些手机系统webview渲染不出圆角的效果 */
+  transform: translateY(0);
+}
+
+.swiper-item {
+  /* 去除图片下面的3像素 */
+  display: flex;
+}
+
+.swiper-item .swiper-image {
+  width: 100%;
+}
+
+

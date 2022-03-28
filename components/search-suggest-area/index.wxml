@@ -1,0 +1,16 @@
+<!--components/search-suggest-area/index.wxml-->
+<view class="suggest" >
+  <view class="title">搜索"{{searchValue}}"</view>
+  <view class="list">
+    <block wx:for="{{suggestSongs}}" wx:key="keyword">
+      <view 
+        class="item" 
+        bind:tap="handleItemClick"
+        data-keyword="{{item.keyword}}"
+      >
+        <image class="icon" src="/assets/images/icons/search_icon.png" mode="widthFix"></image>
+        <rich-text nodes="{{suggestSongsNodes[index]}}"></rich-text>
+      </view>
+    </block>
+  </view>
+</view>

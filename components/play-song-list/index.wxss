@@ -1,0 +1,44 @@
+/* components/play-song-list/index.wxss */
+.list-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.list-shadow {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.list {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30rpx;
+  position: fixed;
+  bottom: 0;
+  background-color: #fafafa;
+  overflow: auto;
+}
+
+.list .list-item {
+  width: 100%;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.list .list-item:last-of-type {
+  margin-bottom: 30rpx;
+}
+
+.list .song-line, .list .song-ar {
+  font-size: 25rpx;
+  color: #999
+}
+
+.list .song-line {
+  margin: 0 15rpx;
+}
+
+.list .active {
+  color: #26ce8a;
+}

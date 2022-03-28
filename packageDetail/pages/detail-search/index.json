@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "search-keyword-area": "/components/search-keyword-area/index",
+    "search-suggest-area": "/components/search-suggest-area/index",
+    "search-result-area": "/components/search-result-area/index"
+  }
+}

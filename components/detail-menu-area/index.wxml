@@ -1,0 +1,15 @@
+<!--components/detail-menu-area/index.wxml-->
+<view class="menu-item">
+  <view class="menu-title">{{menuItem.name}}</view>
+  <view class="detail-list">
+    <block wx:for="{{menuItem.list}}" wx:key="id">
+      <view class="detail-item">
+        <song-menu-item 
+          item="{{item}}" 
+          item-play-counter="play-counter"
+          item-bottom="bottom"
+        ></song-menu-item>
+      </view>    
+    </block>
+  </view>
+</view>

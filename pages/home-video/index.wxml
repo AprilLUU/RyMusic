@@ -1,0 +1,15 @@
+<!--pages/home-video/index.wxml-->
+<view class="video">
+  <view class="item" wx:for="{{topMVs}}" wx:key="id">
+    <video-item-v1 
+      item="{{item}}" 
+      bind:tap="handleVideoItemClick"
+      data-item="{{item}}"
+    ></video-item-v1>
+  </view>
+</view>
+
+<play-bar wx:if="{{currentSong.id}}"></play-bar>
+
+<play-song-list wx:if="{{isShowPlayListSongs}}" isHomePage="{{true}}">
+</play-song-list>

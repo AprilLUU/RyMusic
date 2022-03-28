@@ -1,0 +1,13 @@
+/* pages/detail-search/index.wxss */
+page {
+  padding: 0 20rpx;
+  padding-top: 56px;
+}
+
+.search {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  left: 20rpx;
+  right: 20rpx;
+}

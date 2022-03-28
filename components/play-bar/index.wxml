@@ -1,0 +1,25 @@
+<!--components/play-bar/index.wxml-->
+<view class="play-bar-placeholder"></view>
+<view class="play-bar">
+  <view class="left" bind:tap="handlePlayBarLeftClick">
+    <image 
+      class="album album-anim" 
+      style="animation-play-state: {{playAnimState}};"
+      src="{{currentSong.al.picUrl}}" 
+      mode="aspectFill"
+    ></image>
+    <view class="name">{{currentSong.name}}</view>
+  </view>
+  <view class="right">
+    <image 
+      class="icon play" 
+      src="/assets/images/music/{{playingName}}_icon.png"
+      bind:tap="handlePlayBtnClick"
+    ></image>
+    <image 
+      class="icon playlist" 
+      src="/assets/images/music/playlist_icon.png"
+      bind:tap="handlePlayListBtnClick"
+    ></image>
+  </view>
+</view>

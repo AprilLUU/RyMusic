@@ -1,0 +1,6 @@
+<!--pages/detail-menu/index.wxml-->
+<view class="menu-list">
+  <block wx:for="{{songMenuList}}" wx:key="name">
+    <detail-menu-area menuItem="{{item}}"></detail-menu-area>
+  </block>
+</view>

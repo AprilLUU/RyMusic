@@ -1,0 +1,30 @@
+/* components/search-suggest-area/index.wxss */
+.suggest {
+  padding: 20rpx 30rpx;
+}
+
+.suggest .title {
+  color: #26ce8a;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.suggest .item {
+  display: flex;
+  align-items: center;
+  margin-top: 16rpx;
+}
+
+.suggest .item .icon {
+  width: 66rpx;
+  margin-left: -20rpx;
+}
+
+.suggest .item .text {
+  font-size: 28rpx;
+}
+
+.suggest .item .active-text {
+  color: #26ce8a;
+  font-size: 30rpx;
+}

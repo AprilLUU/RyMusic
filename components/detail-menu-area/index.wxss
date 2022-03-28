@@ -1,0 +1,25 @@
+/* components/detail-menu-area/index.wxss */
+
+.menu-item {
+  margin-bottom: 20rpx;
+}
+
+.menu-title {
+  font-size: 40rpx;
+  font-weight: bolder;
+}
+
+.detail-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.detail-list .detail-item {
+  width: 48%;
+  margin-top: 20rpx;
+}
+
+.play-counter, .bottom {
+  font-size: 30rpx !important;
+}

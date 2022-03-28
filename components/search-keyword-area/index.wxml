@@ -1,0 +1,14 @@
+<!--components/search-keyword-area/index.wxml-->
+<view class="hot">
+  <view class="header">{{title}}</view>
+  <view class="keywords">
+    <block wx:for="{{hotKeyWords}}" wx:key="first">
+      <view 
+        class="tag" 
+        bind:tap="handleItemClick"
+        data-keyword="{{item.first}}"
+      >{{item.first}}</view>
+    </block>
+  </view>
+</view>
+

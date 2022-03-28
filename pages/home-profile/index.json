@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "play-bar": "/components/play-bar/index",
+    "area-header": "/components/area-header/index",
+    "song-item-v2": "/components/song-item-v2/index",
+    "play-song-list": "/components/play-song-list/index"
+  }
+}
