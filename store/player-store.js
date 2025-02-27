@@ -1,4 +1,4 @@
-import { HYEventStore } from 'hy-event-store'
+import EventStore from './event-store'
 import { getSongDetail, getSongLyric } from '../service/api_player'
 import { parseLyric } from '../utils/parse-lyric'
 import { setStorageParse } from '../utils/storage-io'
@@ -8,7 +8,7 @@ const audioContext = wx.createInnerAudioContext()
 // const audioContext = wx.getBackgroundAudioManager()
 const playModeNames = ['order', 'repeat', 'random']
 
-const playerStore = new HYEventStore({
+const playerStore = new EventStore({
   state: {
     isFirstPlay: true,
     // isStoping: false,
@@ -22,7 +22,7 @@ const playerStore = new HYEventStore({
     currentLyricIndex: 0,
     currentLyricText: '',
 
-    playModeIndex: 0 ,// 0:顺序播放 1：单曲循环 2: 随机播放
+    playModeIndex: 0, // 0:顺序播放 1：单曲循环 2: 随机播放
     playListSongs: [],
     playListIndex: 0,
     isShowPlayListSongs: false,
@@ -33,18 +33,18 @@ const playerStore = new HYEventStore({
   },
   actions: {
     /**
-     * @params {Number} id:歌曲的id 
+     * @params {Number} id:歌曲的id
      * @params {Boolean} isRefresh: 播放同一首歌时是否需要重新播放
      */
 
     playMusicWithSongIdAction(ctx, { id, isRefresh = false }) {
-      if (ctx.id == id && !isRefresh ) {
+      if (ctx.id == id && !isRefresh) {
         const isPlaying = audioContext.paused
         if (isPlaying) {
           this.dispatch('changeMusicPlayStatuAction')
         }
         return
-      }else if (ctx.id == id && isRefresh) {
+      } else if (ctx.id == id && isRefresh) {
         audioContext.stop()
         audioContext.play()
         return
@@ -58,11 +58,11 @@ const playerStore = new HYEventStore({
       ctx.currentLyricIndex = 0
       ctx.currentLyricText = ''
 
-      getSongDetail(id).then(res => {
+      getSongDetail(id).then((res) => {
         ctx.currentSong = res.songs[0]
         ctx.durationTime = res.songs[0].dt
         // audioContext.title = res.songs[0].name
-        for(let i = 0; i < ctx.historyPlaySongList.length; i++) {
+        for (let i = 0; i < ctx.historyPlaySongList.length; i++) {
           if (ctx.historyPlaySongList[i].id === ctx.currentSong.id) {
             ctx.historyPlaySongList.splice(i, 1)
             break
@@ -71,8 +71,8 @@ const playerStore = new HYEventStore({
         ctx.historyPlaySongList.unshift(ctx.currentSong)
         setStorageParse(HISTORYPLAYSONGLIST_KEY, ctx.historyPlaySongList)
       })
-  
-      getSongLyric(id).then(res => {
+
+      getSongLyric(id).then((res) => {
         const lyricString = res.lrc.lyric
         const lyrics = parseLyric(lyricString)
         ctx.lyrics = lyrics
@@ -97,7 +97,7 @@ const playerStore = new HYEventStore({
       audioContext.onTimeUpdate(() => {
         const currentTime = audioContext.currentTime * 1000
         ctx.currentTime = currentTime
-  
+
         if (!ctx.lyrics.length) return
         let i = 0
         for (; i < ctx.lyrics.length; i++) {
@@ -151,7 +151,7 @@ const playerStore = new HYEventStore({
         audioContext.play()
         this.setState('playingName', 'playing')
         this.setState('playAnimState', 'running')
-      }else {
+      } else {
         audioContext.pause()
         this.setState('playingName', 'pause')
         this.setState('playAnimState', 'paused')
@@ -162,33 +162,32 @@ const playerStore = new HYEventStore({
     changeNewMusicAction(ctx, isNext = true) {
       let index = ctx.playListIndex
 
-      switch(ctx.playModeIndex) {
+      switch (ctx.playModeIndex) {
         case 0:
           index = isNext ? index + 1 : index - 1
           if (index === -1) index = ctx.playListSongs.length - 1
           if (index === ctx.playListSongs.length) index = 0
           break
-        case 1: 
+        case 1:
           break
         case 2:
           index = Math.floor(Math.random() * ctx.playListSongs.length)
           break
       }
-    
+
       let currentSong = ctx.playListSongs[index]
       if (!currentSong) {
         currentSong = ctx.currentSong
-      }else {
+      } else {
         ctx.playListIndex = index
       }
 
-      this.dispatch('playMusicWithSongIdAction', { id: currentSong.id, isRefresh: true })
+      this.dispatch('playMusicWithSongIdAction', {
+        id: currentSong.id,
+        isRefresh: true
+      })
     }
   }
 })
 
-export {
-  audioContext,
-  playerStore,
-  playModeNames
-}
+export { audioContext, playerStore, playModeNames }
